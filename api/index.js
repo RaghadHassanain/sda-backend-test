@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
 
 const productsRoute = require("./routes/productsRoute");
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/products", productsRoute);
+app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
